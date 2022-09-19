@@ -243,6 +243,11 @@ body {
     .reset_bttn {
         flex: 0 1 47.7%;
     }
+    .games_name {
+        height: 4.4rem;
+        padding-top: 0.2rem;
+        font-size: 2.6rem;
+    }
 }
 
 @media (max-width: 390px) {
