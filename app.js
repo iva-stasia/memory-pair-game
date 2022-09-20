@@ -94,9 +94,8 @@ function checkMatch() {
     };
 
     if (cardsInfo[0].name !== cardsInfo[1].name) {
-        setTimeout(() => 
-        flippedCards.forEach(card => card.classList.remove('flipped_card')), 200);
-        setTimeout(resetBoard, 200);
+        flippedCards.forEach(card => card.classList.remove('flipped_card'));
+        resetBoard();
         return;
     };
 
