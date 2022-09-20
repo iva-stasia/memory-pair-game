@@ -101,13 +101,11 @@ body {
     transform-style: preserve-3d;
     transform: rotateY(0deg);
     transition: all 0.7s ease;
-    border-radius: 0.8rem;
-    box-shadow: 0px 1px 4px #71817b;
 }
 
 .flipped_card {
     transform: rotateY(180deg);
-    transition: all 1s ease;
+    transition: all 0.7s ease;
 }
 
 .face,
@@ -120,6 +118,7 @@ body {
 
 .face {
     background-color: var(--color3);
+    box-shadow: 0px 1px 4px #71817b;
 }
 
 .back {
