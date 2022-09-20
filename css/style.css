@@ -113,11 +113,11 @@ body {
     height: 100%;
     position: absolute;
     border-radius: 0.8rem;
-    box-shadow: 0px 1px 4px #71817b;
 }
 
 .face {
     background-color: var(--color3);
+    box-shadow: 0px 1px 4px #71817b;
 }
 
 .back {
@@ -242,6 +242,11 @@ body {
     .found_board,
     .reset_bttn {
         flex: 0 1 47.7%;
+    }
+    .games_name {
+        height: 4.4rem;
+        padding-top: 0.2rem;
+        font-size: 2.6rem;
     }
 }
 
