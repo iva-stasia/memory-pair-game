@@ -1,2 +1,3 @@
 # memory-pair-game
-training project
+
+[Demo](https://iva-stasia.github.io/memory-pair-game/)
