@@ -28,7 +28,7 @@ const cards = [
 ];
 
 const gameBoard = document.querySelector('.game_board');
-const foundDisplay = document.querySelector('.found_qty');
+const clickBoard = document.querySelector('.clicks_qty');
 const resetBttn = document.querySelector('.reset_bttn');
 const playBttns = document.querySelectorAll('.play_bttn');
 const winMessage = document.querySelector('.win_message');
@@ -51,7 +51,7 @@ function generateCards(cardsExist = 0) {
     cards.forEach(card => {
         gameBoard.insertAdjacentHTML('beforeend',
         `
-            <div class='card_container' data-id='${cards.indexOf(card) + cardsExist}' title='${card.name}'>
+            <div class='card_container' data-id='${cards.indexOf(card) + cardsExist}' data-name='${card.name}'>
                 <img class='face' src=${card.img} data-id='${cards.indexOf(card) + cardsExist}' />
                 <div class='back' data-id='${cards.indexOf(card) + cardsExist}'></div>
             </div>
@@ -69,13 +69,14 @@ function flipCard() {
         if (flippedCards.length < 2) {
             const currentCard = event.target.closest('.card_container');
             const cardId = currentCard.dataset.id;
-            const cardName = currentCard.getAttribute('title');
+            const cardName = currentCard.getAttribute('data-name');
 
             currentCard.classList.toggle('flipped_card');
             flippedCards.push(currentCard);
             cardsInfo.push({id: cardId, name: cardName});
             
             clickCounter++;
+            clickBoard.innerText = `${clickCounter}`;
         };
 
         if (flippedCards.length === 2) {
@@ -103,7 +104,6 @@ function checkMatch() {
     if (cardsInfo[0].name === cardsInfo[1].name) {
         flippedCards.forEach(card => card.classList.add('card_locked'));
         foundCardsQty++;
-        foundDisplay.innerText = `${foundCardsQty}`;
         checkWin();        
         resetBoard();
         return;
@@ -130,7 +130,7 @@ function resetGame() {
     resetBoard();
     foundCardsQty = 0;
     clickCounter = 0;
-    foundDisplay.innerText = `${foundCardsQty}`;
+    clickBoard.innerText = `${clickCounter}`;
     gameBoard.innerHTML = '';
     generateCards();
     generateCards(cards.length);

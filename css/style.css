@@ -46,7 +46,7 @@ body {
 }
 
 .games_name,
-.found_board {
+.clicks_board {
     text-align: center;
     color: var(--color4);
     background-color: var(--color3);
@@ -60,7 +60,7 @@ body {
     font-size: 3rem;
 }
 
-.found_board,
+.clicks_board,
 .reset_bttn {
     flex: 0 1 48%;
     padding: 1rem;
@@ -68,7 +68,7 @@ body {
     text-align: center;
 }
 
-.found_qty {
+.clicks_qty {
     font-size: 1.5rem;
 }
 
@@ -239,7 +239,7 @@ body {
         grid-template-columns: repeat(3, 7rem);
         grid-template-rows: repeat(4, 8rem);
     }
-    .found_board,
+    .clicks_board,
     .reset_bttn {
         flex: 0 1 47.7%;
     }
