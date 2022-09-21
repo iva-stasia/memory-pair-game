@@ -28,7 +28,7 @@ const cards = [
 ];
 
 const gameBoard = document.querySelector('.game_board');
-const foundDisplay = document.querySelector('.found_qty');
+const clickBoard = document.querySelector('.clicks_qty');
 const resetBttn = document.querySelector('.reset_bttn');
 const playBttns = document.querySelectorAll('.play_bttn');
 const winMessage = document.querySelector('.win_message');
@@ -76,6 +76,7 @@ function flipCard() {
             cardsInfo.push({id: cardId, name: cardName});
             
             clickCounter++;
+            clickBoard.innerText = `${clickCounter}`;
         };
 
         if (flippedCards.length === 2) {
@@ -103,7 +104,6 @@ function checkMatch() {
     if (cardsInfo[0].name === cardsInfo[1].name) {
         flippedCards.forEach(card => card.classList.add('card_locked'));
         foundCardsQty++;
-        foundDisplay.innerText = `${foundCardsQty}`;
         checkWin();        
         resetBoard();
         return;
@@ -130,7 +130,7 @@ function resetGame() {
     resetBoard();
     foundCardsQty = 0;
     clickCounter = 0;
-    foundDisplay.innerText = `${foundCardsQty}`;
+    clickBoard.innerText = `${clickCounter}`;
     gameBoard.innerHTML = '';
     generateCards();
     generateCards(cards.length);
