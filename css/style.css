@@ -23,7 +23,6 @@
 
 html,
 body {
-    position: relative;
     height: 100vh;
     width: 100vw;
     overflow: auto;
@@ -34,10 +33,7 @@ body {
 }
 
 .game_container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: 2rem auto;
     width: 30.1rem;
     display: flex;
     justify-content: space-between;
@@ -125,11 +121,12 @@ body {
     backface-visibility: hidden;
 }
 
-.card_locked {
+.locked,
+.found_locked {
     pointer-events: none;
 }
 
-.card_locked .face {
+.found_locked .face {
     opacity: 50%;
     transition: all 0.2s ease;
 }

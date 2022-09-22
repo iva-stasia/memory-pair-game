@@ -36,7 +36,7 @@ const startMessage = document.querySelector('.start_message');
 const clickQty = document.querySelector('.click_counter');
 
 let boardLocked = true;
-let cardsInfo = [];
+let flippedCardsName = [];
 let flippedCards = [];
 let foundCardsQty = 0;
 let clickCounter = 0;
@@ -68,12 +68,11 @@ function flipCard() {
 
         if (flippedCards.length < 2) {
             const currentCard = event.target.closest('.card_container');
-            const cardId = currentCard.dataset.id;
             const cardName = currentCard.getAttribute('data-name');
 
-            currentCard.classList.toggle('flipped_card');
+            currentCard.classList.add('flipped_card', 'locked');
             flippedCards.push(currentCard);
-            cardsInfo.push({id: cardId, name: cardName});
+            flippedCardsName.push(cardName);
             
             clickCounter++;
             clickBoard.innerText = `${clickCounter}`;
@@ -89,20 +88,15 @@ function flipCard() {
 flipCard();
 
 function checkMatch() {
-    if (cardsInfo[0].id == cardsInfo[1].id) {
-        resetBoard();
-        return;
-    };
-
-    if (cardsInfo[0].name !== cardsInfo[1].name) {
+    if (flippedCardsName[0] !== flippedCardsName[1]) {
         setTimeout(() => 
-        flippedCards.forEach(card => card.classList.remove('flipped_card')), 200);
+        flippedCards.forEach(card => card.classList.remove('flipped_card', 'locked')), 200);
         setTimeout(resetBoard, 200);
         return;
     };
 
-    if (cardsInfo[0].name === cardsInfo[1].name) {
-        flippedCards.forEach(card => card.classList.add('card_locked'));
+    if (flippedCardsName[0] === flippedCardsName[1]) {
+        flippedCards.forEach(card => card.classList.add('found_locked'));
         foundCardsQty++;
         checkWin();        
         resetBoard();
@@ -111,7 +105,7 @@ function checkMatch() {
 };
 
 function resetBoard() {
-    cardsInfo = [];
+    flippedCardsName = [];
     flippedCards = [];
     boardLocked = false;
 };
@@ -126,7 +120,7 @@ function checkWin() {
 
 function resetGame() {
     const allCards = document.querySelectorAll('.card_container');
-    allCards.forEach(card => card.classList.remove('flipped_card', 'card_locked'));
+    allCards.forEach(card => card.classList.remove('flipped_card', 'found_locked'));
     resetBoard();
     foundCardsQty = 0;
     clickCounter = 0;
