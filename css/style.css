@@ -13,7 +13,7 @@
     padding: 0;
     font-family: 'Varela Round', sans-serif;
     font-weight: 600;
-    font-size: 25px;
+    font-size: 24px;
     list-style: none;
     text-decoration: none;
     -webkit-user-select: none;
@@ -199,35 +199,9 @@ body {
     }
 }
 
-@media (max-width: 1399px) {
-    * {
-        font-size: 15px;
-    }
-}
-
-@media (max-width: 1199px) {
+@media (max-width: 1599px) {
     * {
         font-size: 18px;
-    }
-    .game_container {
-        width: 45.5rem;
-    }
-    .game_board {
-        grid-template-columns: repeat(6, 7rem);
-        grid-template-rows: repeat(2, 8rem);
-    }
-}
-
-@media (max-width: 991px) {
-    * {
-        font-size: 22px;
-    }
-    .game_container {
-        width: 30.1rem;
-    }
-    .game_board {
-        grid-template-columns: repeat(4, 7rem);
-        grid-template-rows: repeat(3, 8rem);
     }
 }
 
@@ -255,6 +229,6 @@ body {
 
 @media (max-width: 390px) {
     * {
-        font-size: 14px;
+        font-size: 12px;
     }
 }
