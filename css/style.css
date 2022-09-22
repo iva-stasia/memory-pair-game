@@ -199,6 +199,12 @@ body {
     }
 }
 
+@media (max-width: 1399px) {
+    * {
+        font-size: 15px;
+    }
+}
+
 @media (max-width: 1199px) {
     * {
         font-size: 18px;
